@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useUserStore } from "@/store/userStore";
 import { parseJwt } from "@/utils/parseJwt";
+import LogoutButton from "./LogoutButton";
 
 export default function Navbar() {
   const { name, username, setUser } = useUserStore();
@@ -32,9 +33,12 @@ export default function Navbar() {
             alt="로고"
           />
         </Link>
-        <div className="text-md text-black flex flex-col gap-1 items-center">
-          <p>{name}</p>
-          <p>{username}</p>
+        <div className="flex gap-3">
+          <div className="text-sm text-black flex flex-col gap-1 items-center">
+            <p>{name}</p>
+            <p>{username}</p>
+          </div>
+          <LogoutButton />
         </div>
       </div>
     </nav>
