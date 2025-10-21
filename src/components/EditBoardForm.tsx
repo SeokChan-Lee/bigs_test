@@ -71,7 +71,12 @@ export default function EditBoardForm({ id }: Props) {
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-6 max-w-2xl mx-auto pt-30 px-5 md:px-3 mb-30"
     >
-      <h1 className="text-2xl font-semibold mb-4">게시글 수정</h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-2xl font-semibold ">게시글 수정</h1>
+        <Link href="/boards">
+          <Button className="px-2">뒤로가기</Button>
+        </Link>
+      </div>
 
       <Input
         {...register("title")}
@@ -156,9 +161,6 @@ export default function EditBoardForm({ id }: Props) {
       <Button type="submit" disabled={isSubmitting || !isValid}>
         {isSubmitting ? <Spinner /> : "게시물 수정"}
       </Button>
-      <Link href="/boards">
-        <Button>뒤로가기</Button>
-      </Link>
     </form>
   );
 }
